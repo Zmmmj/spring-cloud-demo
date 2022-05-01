@@ -7,18 +7,27 @@ spring:
     config:
       server:
         git:
-          # Git 地址，https://gitee.com/java-mohan/springcloud-config.git
-          # 码云（gitee）地址 uri: https://github.com/javmohan/springcloud-config.git  (github 站点访问较慢，因此这里我们使用 gitee)
-          uri: https://github.com/Zmmmj/springcloud-config.git
+          # Github 地址
+          uri: https://github.com/Zmmmj/spring-cloud-config.git
           #仓库名
           search-paths:
-            - springcloud-config
+            - spring-cloud-config
           force-pull: true
           # 如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写
           # username: ********
           # password: ********
       #分支名
       label: master
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
 eureka:
   client: #将客户端注册到 eureka 服务列表内
     service-url:
